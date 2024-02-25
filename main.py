@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import sys
+from environs import Env
 
 from os import getenv
 from aiogram import Bot, Dispatcher, Router, types
@@ -12,9 +13,10 @@ from test import find_stories
 
 from aiogram.client.session.aiohttp import AiohttpSession
 
-# Bot token can be obtained via https://t.me/BotFather
-TOKEN = "6818639279:AAFUMUiFpIW38NzXXoRSaxG4C_J7QAutH6M"
+env = Env()
 
+# Bot token can be obtained via https://t.me/BotFather
+TOKEN = env.str("TOKEN")
 # All handlers should be attached to the Router (or Dispatcher)
 
 dp = Dispatcher()
